@@ -10,5 +10,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl start kubelet
 sudo kubeadm init --cri-socket /run/cri-dockerd.sock --pod-network-cidr=192.168.10.0/24
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml

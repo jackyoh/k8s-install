@@ -9,7 +9,7 @@ sudo apt install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl start kubelet
-sudo kubeadm init --cri-socket /run/cri-dockerd.sock --pod-network-cidr=192.168.10.0/24
+sudo kubeadm init --cri-socket /run/cri-dockerd.sock --pod-network-cidr=10.10.0.0/16
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config

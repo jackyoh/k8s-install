@@ -16,3 +16,4 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 curl https://projectcalico.docs.tigera.io/manifests/calico.yaml -O
 kubectl apply -f calico.yaml
+kubectl taint nodes k8s-master node-role.kubernetes.io/control-plane:NoSchedule-
